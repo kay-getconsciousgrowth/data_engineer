@@ -8,7 +8,7 @@
 
 ### Exercise 1
 
-- Using both APIs under Sources, create an application that will update fx_price_index table in bidwh database (any SQL-supporting database) in consciousgrowth.1234.com server.
+- Using both APIs under Sources, create an application that will update fx_price_index table in bidwh database (any SQL-supporting database) in consciousgrowth.1234.com server. The database and the server are fictional - Please build the application assuming they exist.
 - This application will be scheduled to run every 5 minutes.
 - The fx_price_index table should contain daily rates for BPI, USD, EUR, and GBP. Specifically, the table should contain only one rate per day per currency.
 - The data in fx_price_index table should be structured so that it can be easily used for data analysis and SQL queries.
