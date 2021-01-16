@@ -39,6 +39,7 @@
         }
         ```
 
+- Please note that the above endpoint is fictional and cannot be called. Utilize the above documentation on the endpoint to formulate.
 - Develop the application from Exercise 1 using this new assumption on the fixer.io API.
 
 ### Exercise 3
