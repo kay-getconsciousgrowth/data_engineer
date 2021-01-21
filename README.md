@@ -5,6 +5,10 @@
 - Provide the answer to each exercise below in a separate file. When the exercises are done, there should be three (3) separate files.
 - Push the exercise files to your public Github repository and send the link of the repo to kay@getconsciousgrowth.com
 
+### Sources to use
+
+- Bitcoin Price Index (BPI) from [CoinDesk](https://www.coindesk.com/coindesk-api)
+- FX rates from [Fixer.io](https://fixer.io/) (please sign up for a free version)
 
 ### Exercise 1
 
