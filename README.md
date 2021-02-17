@@ -1,52 +1,47 @@
-# data_engineer
+# Data Engineer
 
-### Instruction
+```
+create table transaction_table(
+	transaction_index char(5) primary key,
+	channel varchar(40),
+	date_created date,
+	revenue float
+);
 
-- Provide the answer to each exercise below in a separate file. When the exercises are done, there should be three (3) separate files.
-- Push the exercise files to your public Github repository and send the link of the repo to kay@getconsciousgrowth.com
+create table month_table(
+	month_index char(5) primary key,
+	year_month integer not null,
+	month_start_date date not null,
+	month_end_date date not null
+);
 
-### Sources to use
+insert into transaction_table values ('00001', 'facebook', '2021-01-01', 1000);
+insert into transaction_table values ('00002', 'facebook', '2021-01-01', 2000);
+insert into transaction_table values ('00003', 'facebook', '2021-01-02', 2500);
+insert into transaction_table values ('00004', 'facebook', '2021-01-02', 300);
+insert into transaction_table values ('00005', 'facebook', '2021-01-02', 600);
+insert into transaction_table values ('00006', 'google', '2021-01-02', 10000);
+insert into transaction_table values ('00007', 'google', '2021-01-06', 30000);
+insert into transaction_table values ('00008', 'facebook', '2021-02-01', 200);
+insert into transaction_table values ('00009', 'facebook', '2021-02-02', 250);
+insert into transaction_table values ('00010', 'facebook', '2021-02-02', 30);
+insert into transaction_table values ('00011', 'facebook', '2021-02-02', 60);
+insert into transaction_table values ('00012', 'google', '2021-02-02', 1000);
+insert into transaction_table values ('00013', 'google', '2021-02-06', 3000);
+insert into transaction_table values ('00014', 'facebook', '2021-03-01', 1200);
+insert into transaction_table values ('00015', 'facebook', '2021-03-02', 1250);
+insert into transaction_table values ('00016', 'facebook', '2021-03-02', 130);
+insert into transaction_table values ('00017', 'facebook', '2021-04-01', 12500);
+insert into transaction_table values ('00018', 'facebook', '2021-04-02', 12550);
+insert into transaction_table values ('00019', 'google', '2021-04-02', 11000);
+insert into transaction_table values ('00020', 'google', '2021-04-06', 33000);
 
-- Bitcoin Price Index (BPI) from [CoinDesk](https://www.coindesk.com/coindesk-api)
-- FX rates from [Fixer.io](https://fixer.io/) (please sign up for a free version)
+insert into month_table values ('00001', 202011, '2020-11-01', '2020-11-30');
+insert into month_table values ('00002', 202012, '2020-12-01', '2020-12-31');
+insert into month_table values ('00003', 202101, '2021-01-01', '2021-01-31');
+insert into month_table values ('00004', 202102, '2021-02-01', '2021-02-28');
+insert into month_table values ('00005', 202103, '2021-03-01', '2021-03-31');
+insert into month_table values ('00006', 202104, '2021-04-01', '2021-04-30');
+```
 
-### Exercise 1
-
-- Using both APIs under Sources, create an application that will update fx_price_index table in bidwh database (any SQL-supporting database) in consciousgrowth.1234.com server. The database and the server are fictional - Please build the application assuming they exist.
-- This application will be scheduled to run every 5 minutes.
-- The fx_price_index table should contain daily rates for BPI, USD, EUR, and GBP. Specifically, the table should contain only one rate per day per currency.
-- The data in fx_price_index table should be structured so that it can be easily used for data analysis and SQL queries.
-- Please state the language(s) and the type of SQL-supporting database you used for this application.
-
-### Exercise 2
-
-- Assume that [fixer.io](http://fixer.io) will now use OAuth 2. You have registered an API application with fixer.io. and have been issued client ID (A8f8B0300v456j7n) and client secret (N35620nff35Ndb05).
-- Note the following endpoint:
-    - POST https://data.fixer.io/oauth/token
-    - Request body type: application/x-www-form-urlencoded
-    - Request body
-        - grant_type (string) - allowed: client_credentials, refresh_token
-        - client_id (string)
-        - client_secret (password)
-        - refresh_token (password): optional
-    - To authorize an API application and receive a token, use grant_type=client_credentials
-    - Once a token is expired, it can be restored using grant_type=refresh_token and providing refresh_token
-    - An example response:
-
-        ```
-        {
-           "access_token": "yvMbx_TgwdYE0hOGRZcJiCjQuRGkVIBfjj8uo5uo7_QOXts1s58X30RrGBTyqV9h26SUHcZPNbZ",
-           "token_type": "bearer",
-           "refresh_token": "0b9KjiBVlZLz7a4H5mgNYwCQ_dWctTDsaIjedAhD1LpsOFJ7x9FHijALYSQ2UeRq5VEVYEaGf6",
-           "expires_in": 3600,
-           "scope": "all"
-        }
-        ```
-
-- Please note that the above endpoint is fictional and cannot be called. Utilize the above documentation on the endpoint to formulate.
-- Develop the application from Exercise 1 using this new assumption on the fixer.io API.
-
-### Exercise 3
-
-- The application created in Exercise 1 or 2 needs to be scheduled and ran as a job. Describe the engine you will design - specify its tech stack. 
-- Include as much detail/specification as needed.
+Using the above table(s), compose a SQL query that produces monthly revenue by channel and the previous month's revenue.
