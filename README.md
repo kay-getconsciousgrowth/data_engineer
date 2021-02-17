@@ -1,5 +1,8 @@
 # Data Engineer
 
+## Case Study 1
+Using the above table(s), compose a SQL query that produces monthly revenue by channel and the previous month's revenue.
+
 ```
 create table transaction_table(
 	transaction_index char(5) primary key,
@@ -44,4 +47,5 @@ insert into month_table values ('00005', 202103, '2021-03-01', '2021-03-31');
 insert into month_table values ('00006', 202104, '2021-04-01', '2021-04-30');
 ```
 
-Using the above table(s), compose a SQL query that produces monthly revenue by channel and the previous month's revenue.
+## Case Study 2
+We need to obtain our client's Facebook marketing data for the Commercial team. We'd like to obtain this via web API app. Please describe your steps to implement this end-to-end (from Facebook web app to delivery to the end users), including languages, tech stack, and/or assumptions used.
